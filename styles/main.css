@@ -1,0 +1,424 @@
+body {
+  background-color: black;
+}
+
+/*NAVBAR*/
+nav {
+  height: 6vw;
+  position: relative;
+}
+nav a {
+  text-align: center;
+  margin-top: 2.5%;
+  padding-left: 8%;
+}
+.logoNavbar {
+  margin-top: 1%;
+  margin-right: 5%;
+}
+.cartShopCart {
+  position: relative;
+}
+
+/* Shop Window*/
+.shop {
+  position: fixed;
+}
+.cartItemNumber {
+  position: absolute;
+  top: 34%;
+  left: 55%;
+  color: #ffffff;
+  font-size: 125%;
+}
+.accountContainer {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.account {
+  right: 80%;
+  top: 100%;
+  position: absolute;
+}
+.shopWindow {
+  position: fixed;
+  border-radius: 1%;
+  width: 35%;
+  height: auto;
+  top: 8.7%;
+  left: 2.2%;
+  background: rgb(220, 53, 69);
+  background: linear-gradient(
+    90deg,
+    rgba(220, 53, 69, 1) 0%,
+    rgba(58, 175, 248, 1) 150%
+  );
+  display: none;
+  z-index: 9999;
+}
+.shopWindow h2 {
+  color: white;
+  font-style: italic;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+  font-size: 200%;
+  font-weight: bolder;
+}
+.itemsHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 3px solid white;
+  margin: 0 auto;
+}
+.itemsHeader h3 {
+  font-size: 125%;
+  font-weight: bolder;
+}
+.itemTitleShopWindow {
+  margin-left: 1%;
+  width: 45%;
+  display: flex;
+}
+.itemPriceShopWindow {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.quantityShopWindow {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.totalPriceShopWindow {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.itemDisplayed {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid white;
+}
+.closeShopWindow {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 5%;
+  cursor: pointer;
+}
+
+/*GIF*/
+.gifContainer {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gifNav {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: none;
+}
+
+/*Main album*/
+.albumContainer {
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
+}
+
+/*Title Album*/
+.mainTitle {
+  text-align: center;
+  width: 100%;
+}
+.mainTitle h1 {
+  margin-bottom: 3.5%;
+  display: block;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3vw;
+  letter-spacing: 5px;
+}
+
+/*Album Songs*/
+
+.albumSongs {
+  margin-left: 15%;
+  position: relative;
+  height: 80vh;
+}
+/* media queries phone for album songs*/
+
+.spotifyBox iframe {
+  width: 25.2vw;
+  height: 60vh;
+}
+
+/*Album Button*/
+.buttonContainer {
+  margin-top: auto;
+  width: 25.4vw;
+  height: 15vh;
+}
+.buttonContainer button {
+  width: 49%;
+}
+/*flip album*/
+
+.show {
+  width: 42%;
+  position: absolute;
+  right: 15%;
+  top: 0;
+  transition: 2s ease-in-out;
+  cursor: none;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.show img {
+  width: 100%;
+}
+
+.albumFlipContainer:hover .front {
+  transform: rotateY(180deg);
+}
+.back {
+  transform: rotateY(180deg);
+}
+.albumFlipContainer:hover .back {
+  transform: rotateY(360deg);
+}
+
+/*SLIDER*/
+.sliderContainer {
+  height: 100vh;
+}
+.sliderTitle {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3.5%;
+}
+.sliderTitle h2 {
+  display: block;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3vw;
+  letter-spacing: 5px;
+}
+
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#mainSlider {
+  height: 35vw;
+  position: relative;
+  perspective: 1750px;
+  transform-style: preserve-3d;
+}
+
+#mainSlider label {
+  margin: auto;
+  width: 58.5%;
+  height: 89.7%;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+#mainSlider img {
+  width: 100%;
+  height: 100%;
+}
+
+#s1:checked ~ #slide4,
+#s2:checked ~ #slide5,
+#s3:checked ~ #slide1,
+#s4:checked ~ #slide2,
+#s5:checked ~ #slide3 {
+  transform: translate3d(-30%, 0, -200px);
+}
+
+#s1:checked ~ #slide5,
+#s2:checked ~ #slide1,
+#s3:checked ~ #slide2,
+#s4:checked ~ #slide3,
+#s5:checked ~ #slide4 {
+  transform: translate3d(-15%, 0, -100px);
+}
+
+#s1:checked ~ #slide1,
+#s2:checked ~ #slide2,
+#s3:checked ~ #slide3,
+#s4:checked ~ #slide4,
+#s5:checked ~ #slide5 {
+  transform: translate3d(0, 0, 0);
+}
+
+#s1:checked ~ #slide2,
+#s2:checked ~ #slide3,
+#s3:checked ~ #slide4,
+#s4:checked ~ #slide5,
+#s5:checked ~ #slide1 {
+  transform: translate3d(15%, 0, -100px);
+}
+
+#s1:checked ~ #slide3,
+#s2:checked ~ #slide4,
+#s3:checked ~ #slide5,
+#s4:checked ~ #slide1,
+#s5:checked ~ #slide2 {
+  transform: translate3d(30%, 0, -200px);
+}
+
+/*Shop*/
+.shopContainer {
+  height: 95vh;
+}
+.shopTitle {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2%;
+}
+.shopTitle h2 {
+  display: block;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3vw;
+  letter-spacing: 5px;
+}
+.shopFirst {
+  display: flex;
+  justify-content: space-around;
+  height: 45%;
+  margin-bottom: 2%;
+  align-items: center;
+}
+.shopTwo {
+  display: flex;
+  justify-content: space-around;
+  height: 30%;
+  margin-bottom: 3.5%;
+  align-items: center;
+}
+.itemsContainer {
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  width: 45%;
+  height: 100%;
+  position: relative;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2%;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #3aaff8, #dc3545);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.itemsContainerTwo {
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  width: 30%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 2%;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #3aaff8, #dc3545);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.itemsContainer:hover,
+.itemsContainerTwo:hover {
+  box-shadow: 0 15px 25px #3aaff8;
+  background-color: transparent;
+  filter: opacity(80%);
+}
+
+.itemShop {
+  width: 35%;
+}
+.itemShopAlbum {
+  width: 100%;
+}
+.item21 {
+  width: 45%;
+  margin-left: 3%;
+}
+.item1 {
+  width: 45%;
+}
+
+.item3,
+.item5 {
+  top: 0;
+  position: absolute;
+}
+.price {
+  color: #3aaff8;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: 300%;
+}
+.itemDescription {
+  color: white;
+  font-size: 150%;
+  position: absolute;
+  bottom: 1%;
+}
+
+.addToCart {
+  color: white;
+  font-size: 400%;
+  position: absolute;
+  top: 35%;
+  display: none;
+}
+.addToCart2 {
+  color: white;
+  font-size: 400%;
+  position: absolute;
+  top: 25%;
+  display: none;
+}
+.itemsContainer:hover .addToCart {
+  display: block;
+}
+.itemsContainerTwo:hover .addToCart2 {
+  display: block;
+}
+/*
+@media screen and (max-width: 768px) {
+  .albumSongs {
+    height: 300vh;
+    width: 500px;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .spotifyBox {
+    width: 500px;
+    height: 100vh;
+  }
+}
+*/
