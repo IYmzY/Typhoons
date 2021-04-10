@@ -18,11 +18,13 @@ nav a {
 }
 .cartShopCart {
   position: relative;
+  cursor: pointer;
 }
 
 /* Shop Window*/
 .shop {
   position: fixed;
+  z-index: 999999;
 }
 .cartItemNumber {
   position: absolute;
@@ -56,6 +58,7 @@ nav a {
   );
   display: none;
   z-index: 9999;
+  max-height: 90vh;
 }
 .shopWindow h2 {
   color: white;
@@ -64,16 +67,16 @@ nav a {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   justify-content: center;
-  margin-top: 1%;
   font-size: 200%;
   font-weight: bolder;
+  margin: 0 auto;
 }
 .itemsHeader {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   border-bottom: 3px solid white;
-  margin: 0 auto;
+  margin: 0;
 }
 .itemsHeader h3 {
   font-size: 125%;
@@ -82,30 +85,32 @@ nav a {
 .itemTitleShopWindow {
   margin-left: 1%;
   width: 45%;
-  display: flex;
 }
 .itemPriceShopWindow {
   width: 15%;
   display: flex;
   align-items: center;
+  margin: 0;
 }
 .quantityShopWindow {
-  width: 30%;
+  width: 20%;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 .totalPriceShopWindow {
-  width: 15%;
+  width: 10%;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 .itemDisplayed {
   width: 45%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid white;
+  padding: 2% 0;
+  max-height: 12vh;
 }
 .closeShopWindow {
   position: absolute;
@@ -113,6 +118,44 @@ nav a {
   right: 1%;
   width: 5%;
   cursor: pointer;
+}
+.shopWindow ion-icon {
+  font-size: 150%;
+  color: #3aaff8;
+  margin-left: 1%;
+  margin-right: 1%;
+  cursor: pointer;
+}
+
+.itemsDisplayShopWindow {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap column;
+  position: relative;
+}
+.itemPriceShopWindowDisplayed {
+  position: absolute;
+  left: 48%;
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantityShopWindowDisplayed {
+  position: absolute;
+  left: 64%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
+}
+.totalPriceShopWindowDisplayed {
+  position: absolute;
+  left: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
 }
 
 /*GIF*/
@@ -160,7 +203,7 @@ nav a {
 
 .spotifyBox iframe {
   width: 25.2vw;
-  height: 60vh;
+  height: 69vh;
 }
 
 /*Album Button*/

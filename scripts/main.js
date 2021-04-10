@@ -5,11 +5,12 @@ let cart = document.querySelectorAll('.cartSelector')
 
 shop.addEventListener("click", () => {
     shopWindow.style.display = "block"
-    console.log('i am triggered ahahaha')
+    console.log('i am triggered ahahaha');
+
 })
 
 closeShop.addEventListener("click", () => {
-    console.log('i am closed')
+    shopWindow.style.display = "none";
 })
 
 
@@ -50,6 +51,7 @@ for (let y = 0; y < cart.length; y++) {
     cart[y].addEventListener('click', () => {
         cartNumbers(items[y])
         totalCost(items[y])
+        displayCart()
     })
 }
 
@@ -119,23 +121,51 @@ const displayCart = () => {
     let cartItems = localStorage.getItem("itemsInCart")
     cartItems = JSON.parse(cartItems)
     let itemContainerShopWindow = document.querySelector('.itemsDisplayShopWindow')
+    let itemsCost = localStorage.getItem("totalCost");
     if (cartItems && shopWindow) {
-        itemContainerShopWindow.innerHTML = '';
-        Object.values(cartItems).map(items => {
-            shopWindow.innerHTML += `
+        itemContainerShopWindow.innerHTML = ``
+        Object.values(cartItems).map(item => {
+            itemContainerShopWindow.innerHTML += `
             <div class="itemDisplayed">
                 <ion-icon name="trash-outline"></ion-icon>
-                <img src="./images/shop/${items.tag}">
-                <span>${items.name}</span>
+                <img src="./images/shop/${item.tag}">
+                <span>${item.name}</span>
+                <div class="itemPriceShopWindowDisplayed">€${item.price}</div>
+                <div class="quantityShopWindowDisplayed">
+                    <ion-icon name="caret-back-outline"></ion-icon>
+                    <span>${item.inCart}</span>
+                    <ion-icon name="caret-forward-outline"></ion-icon>
+                </div>
+                <div class="totalPriceShopWindowDisplayed"> €${item.inCart * item.price},00</div>           
             </div>
-            
-            `
+            `;
+        })
+        itemContainerShopWindow.innerHTML += `
+        <div class="TotalPriceDisplayedContainer">
+        <h2>  TOTAL :<h2> 
+        <h2> €${itemsCost},00 <h2>
+        </div>
+        `
+    }
+    deleteItems()
+}
+
+const deleteItems = () => {
+    let deleteItem = document.querySelectorAll(".itemDisplayed ion-icon")
+    let itemName;
+
+
+    for (let y = 0; y < deleteItem.length; y++) {
+        deleteItem[y].addEventListener('click', () => {
+            itemName = deleteItem[y].parentElement.textContent.trim().toLowerCase().replace(/ /g, '');
+            console.log(itemName)
         })
     }
-}
-displayCart()
-onLoadItemNumbers()
 
+}
+
+onLoadItemNumbers()
+displayCart()
 
 
 
