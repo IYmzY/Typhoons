@@ -18,30 +18,30 @@ let items = [
     {
         name: "CD ALBUM",
         price: 10,
-        tag: "CDALBUM.png",
+        tag: "CDALBUM",
         inCart: 0,
     },
     {
         name: "CD ALBUM & Tshirt",
-        tag: "CDALBUM&TSHIRT.png",
+        tag: "CDALBUM&TSHIRT",
         price: 30,
         inCart: 0,
     },
     {
         name: "Typhoons Tshirt",
-        tag: "TPSHIRT.png",
+        tag: "TYPHOONSTSHIRT",
         price: 25,
         inCart: 0,
     },
     {
         name: "Typhoons CAP",
-        tag: "TPCAP.png",
+        tag: "TYPHOONSCAP",
         price: 15,
         inCart: 0,
     },
     {
         name: "Royal blood Tshirt",
-        tag: "RBTSHIRTS.png",
+        tag: "ROYALBLOODTSHIRT",
         price: 20,
         inCart: 0,
     }
@@ -127,16 +127,18 @@ const displayCart = () => {
         Object.values(cartItems).map(item => {
             itemContainerShopWindow.innerHTML += `
             <div class="itemDisplayed">
+             <div class="itemDisplayedTitle">
                 <ion-icon name="trash-outline"></ion-icon>
-                <img src="./images/shop/${item.tag}">
+                <img src="./images/shop/${item.tag}.png">
                 <span>${item.name}</span>
-                <div class="itemPriceShopWindowDisplayed">€${item.price}</div>
-                <div class="quantityShopWindowDisplayed">
-                    <ion-icon name="caret-back-outline"></ion-icon>
-                    <span>${item.inCart}</span>
-                    <ion-icon name="caret-forward-outline"></ion-icon>
-                </div>
-                <div class="totalPriceShopWindowDisplayed"> €${item.inCart * item.price},00</div>           
+              </div>
+              <div class="itemPriceShopWindowDisplayed">€${item.price}</div>
+              <div class="quantityShopWindowDisplayed">
+                  <ion-icon name="caret-back-outline"></ion-icon>
+                  <span>${item.inCart}</span>
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+              </div>
+              <div class="totalPriceShopWindowDisplayed"> €${item.inCart * item.price},00</div>       
             </div>
             `;
         })
@@ -151,14 +153,24 @@ const displayCart = () => {
 }
 
 const deleteItems = () => {
-    let deleteItem = document.querySelectorAll(".itemDisplayed ion-icon")
+    let deleteItem = document.querySelectorAll(".itemDisplayed ion-icon");
     let itemName;
+    let itemNumbers = localStorage.getItem('cartNumbers');
+    let cartItems = localStorage.getItem('itemsInCart')
+    let cartCost = localStorage.getItem('totalCost')
+    cartItems = JSON.parse(cartItems)
+    console.log(cartItems)
 
 
     for (let y = 0; y < deleteItem.length; y++) {
         deleteItem[y].addEventListener('click', () => {
-            itemName = deleteItem[y].parentElement.textContent.trim().toLowerCase().replace(/ /g, '');
-            console.log(itemName)
+            itemName = deleteItem[y].parentElement.textContent.trim().toUpperCase().replace(/ /g, '');
+            localStorage.setItem('cartNumbers', itemNumbers - cartItems[itemName].inCart);
+            localStorage.setItem('totalCost', cartCost - (cartItems[itemName].price * cartItems[itemName].inCart));
+            delete cartItems[itemName];
+            localStorage.setItem('itemsInCart', JSON.stringify(cartItems))
+            displayCart();
+            onLoadItemNumbers();
         })
     }
 

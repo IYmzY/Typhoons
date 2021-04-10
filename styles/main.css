@@ -46,7 +46,7 @@ nav a {
 .shopWindow {
   position: fixed;
   border-radius: 1%;
-  width: 35%;
+  width: 38%;
   height: auto;
   top: 8.7%;
   left: 2.2%;
@@ -105,12 +105,12 @@ nav a {
   margin: 0 auto;
 }
 .itemDisplayed {
-  width: 45%;
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 2% 0;
-  max-height: 12vh;
+  max-height: 14vh;
 }
 .closeShopWindow {
   position: absolute;
@@ -120,7 +120,7 @@ nav a {
   cursor: pointer;
 }
 .shopWindow ion-icon {
-  font-size: 150%;
+  font-size: 2vw;
   color: #3aaff8;
   margin-left: 1%;
   margin-right: 1%;
@@ -157,7 +157,12 @@ nav a {
   align-items: center;
   font-size: 150%;
 }
-
+.itemDisplayedTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 /*GIF*/
 .gifContainer {
   width: 70%;
