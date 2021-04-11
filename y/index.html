@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typhoons</title>
+    <link rel="stylesheet" href="./styles/bootstrap.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="images/favIcon/favicon-32x32.png"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            class="logoNavbar"
+            src="images/Typhoons_Logo.png"
+            alt="#"
+            width=" 44%"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="shop">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active itemNumbers" aria-current="page">
+                  <img
+                    class="cartShopCart"
+                    src="images/navbarShop.png"
+                    alt=""
+                    height="65"
+                  />
+                  <label for="shop"></label>
+                  <span class="cartItemNumber">0</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="accountContainer">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <img
+                    src="images/navbarAccount.png"
+                    class="account"
+                    alt=""
+                    height="65"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="shopWindow">
+          <h2>SHOPPING CART</h2>
+          <img src="./images/shop/cancel.png" class="closeShopWindow" alt="" />
+          <div class="itemsHeader">
+            <h3 class="itemTitleShopWindow">ITEMS</h3>
+            <h3 class="itemPriceShopWindow">PRICE</h3>
+            <h3 class="quantityShopWindow">QUANTITY</h3>
+            <h3 class="totalPriceShopWindow">TOTAL</h3>
+          </div>
+          <div class="itemsDisplayShopWindow"></div>
+
+          <!--  
+          <div>
+            <h2>Mode de paiement</h2>
+            <button></button>
+            <button></button>
+            <form action=""></form>
+          </div>
+          -->
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="gifContainer">
+        <img class="gifNav" src="images/gifTest2.gif" />
+      </section>
+      <section class="albumContainer">
+        <article class="mainTitle">
+          <h1>Album</h1>
+        </article>
+        <article class="albumSongs">
+          <div class="spotifyBox">
+            <iframe
+              src="https://open.spotify.com/embed/playlist/5qhSJPmthQWUelN9pSBfSB"
+              frameborder=""
+              allowtransparency="true"
+              allow="encrypted-media"
+            >
+            </iframe>
+
+            <div class="buttonContainer">
+              <button
+                type="button"
+                onclick=" window.open('https://genius.com/albums/Royal-blood/Typhoons','_blank')"
+                class="btn btn-outline-danger"
+              >
+                En savoir plus
+              </button>
+              <button
+                type="button"
+                onclick=" window.open('https://www.fnac.com/a15662957/Royal-Blood-Typhoons-CD-album','_blank')"
+                class="btn btn-light"
+              >
+                Acheter l'album
+              </button>
+            </div>
+          </div>
+          <div class="albumFlipContainer">
+            <div class="show back">
+              <img src="images/Pochette_back.jpg" alt="" />
+            </div>
+            <div class="show front">
+              <img src="images/pochette.jpg" alt="" />
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="sliderContainer">
+        <div id="mainSlider">
+          <div class="sliderTitle">
+            <h2>what's up ?</h2>
+          </div>
+          <input type="radio" name="slider" id="s1" checked />
+          <input type="radio" name="slider" id="s2" />
+          <input type="radio" name="slider" id="s3" />
+          <input type="radio" name="slider" id="s4" />
+          <input type="radio" name="slider" id="s5" />
+          <label for="s1" id="slide1"
+            ><img src="images/Slide/slide3.jpg" alt="#"
+          /></label>
+          <label for="s2" id="slide2"
+            ><img src="images/Slide/slide2.jpg" alt="#"
+          /></label>
+          <label for="s3" id="slide3"
+            ><img src="images/Slide/slide1.jpg" alt="#"
+          /></label>
+          <label for="s4" id="slide4"
+            ><img src="images/Slide/slide4.jpg" alt="#"
+          /></label>
+          <label for="s5" id="slide5"
+            ><img src="images/Slide/slide5.jpg" alt="#"
+          /></label>
+        </div>
+      </section>
+      <section class="shopContainer">
+        <div class="shopTitle">
+          <h2>Shop</h2>
+        </div>
+        <article class="shopFirst">
+          <div class="itemsContainer cartSelector">
+            <h3 class="price">10€</h3>
+            <img
+              class="itemShopAlbum item1"
+              src="images/shopShowCase/CDALBUM.png"
+              alt="#"
+            />
+            <span class="itemDescription">TYPHOONS ALBUM LIMITED EDITION</span
+            ><span class="addToCart">ADD TO CART</span>
+          </div>
+          <div class="itemsContainer cartSelector">
+            <h3 class="price">30€</h3>
+            <div class="item2">
+              <img
+                class="itemShopAlbum item21"
+                src="images/CDALBUM.png"
+                alt="#"
+              />
+              <img
+                class="itemShop item22"
+                src="images/shopShowCase/TYPHOONSTSHIRT.png"
+                alt="#"
+              />
+            </div>
+            <span class="itemDescription"
+              >TYPHOONS ALBUM LIMITED EDITION + TSHIRT</span
+            ><span class="addToCart">ADD TO CART</span>
+          </div>
+        </article>
+        <article class="shopTwo">
+          <div class="itemsContainerTwo cartSelector">
+            <h3 class="price">25€</h3>
+            <img
+              class="itemShop item3"
+              src="images/shopShowCase/TYPHOONSTSHIRT.png"
+              alt="#"
+            />
+            <span class="itemDescription">TYPHOONS TSHIRT</span>
+            <span class="addToCart2">ADD TO CART</span>
+          </div>
+          <div class="itemsContainerTwo cartSelector">
+            <h3 class="price">15€</h3>
+            <img
+              class="itemShop item4"
+              src="images/shopShowCase/TYPHOONSCAP.png"
+              alt="#"
+            />
+            <span class="itemDescription">TYPHOONS CAP</span>
+            <span class="addToCart2">ADD TO CART</span>
+          </div>
+          <div class="itemsContainerTwo cartSelector">
+            <h3 class="price">20€</h3>
+            <img
+              class="itemShop item5"
+              src="images/shopShowCase/ROYALBLOODTSHIRT.png"
+              alt="#"
+            />
+            <span class="itemDescription">ROYAL BLOOD TSHIRT</span>
+            <span class="addToCart2">ADD TO CART</span>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <section class="footerContainer">
+        <div class="footerInfo">
+          <span>© 2021 Warner Music UK Ltd</span>
+          <span
+            ><a
+              onclick=" window.open('https://www.wminewmedia.com/privacy/','_blank')"
+              >PRIVACY POLICY</a
+            >
+          </span>
+          <span
+            ><a
+              onclick=" window.open('https://www.wminewmedia.com/terms-of-use/','_blank')"
+              >TERMS OF USE</a
+            >
+          </span>
+          <span
+            ><a
+              onclick=" window.open('https://www.royalbloodband.com/typhoons/','_blank')"
+              >WEBSITE</a
+            >
+          </span>
+        </div>
+        <div class="socialMedia">
+          <div>
+            <img
+              src="images/socialMedia/spotify.svg"
+              onclick="
+            window.open('https://www.royalbloodband.com/typhoons/','_blank')"
+              alt=""
+            /><span>SPOTIFY</span>
+          </div>
+          <div>
+            <img
+              src="images/socialMedia/instagram.svg"
+              onclick="
+            window.open('https://www.instagram.com/royalblooduk/','_blank')"
+              alt=""
+            /><span>INSTAGRAM</span>
+          </div>
+          <div>
+            <img
+              src="images/socialMedia/twitter.svg"
+              onclick="
+            window.open('https://twitter.com/royalblooduk/','_blank')"
+              alt=""
+            /><span>TWITTER</span>
+          </div>
+          <div>
+            <img
+              src="images/socialMedia/youtube.svg"
+              onclick="
+            window.open('https://www.youtube.com/channel/UCNkhZlHm1ccjIcDyt7W1Opg','_blank')"
+              alt=""
+            /><span>YOUTUBE</span>
+          </div>
+          <div>
+            <img
+              src="images/socialMedia/facebook.svg"
+              onclick="
+            window.open('https://www.facebook.com/RoyalBloodUK','_blank')"
+              alt=""
+            /><span>FACEBOOK</span>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script src="./scripts/bootstrap.bundle.js"></script>
+    <script src="./scripts/bootstrap.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

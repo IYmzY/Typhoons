@@ -414,12 +414,22 @@ nav a {
   margin-left: 3%;
 }
 .item1 {
-  width: 45%;
+  width: 60%;
 }
 
-.item3,
+.item3 {
+  top: 0%;
+  position: absolute;
+  width: 37%;
+}
+.item4 {
+  position: absolute;
+  width: 38%;
+  top: 5%;
+}
 .item5 {
-  top: 0;
+  top: 2%;
+  width: 40%;
   position: absolute;
 }
 .price {

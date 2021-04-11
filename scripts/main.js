@@ -63,54 +63,70 @@ const onLoadItemNumbers = () => {
     }
 }
 
-const cartNumbers = (items) => {
+const cartNumbers = (item, event) => {
     let itemNumbers = localStorage.getItem('cartNumbers');
 
     itemNumbers = parseInt(itemNumbers)
+    let cartItems = localStorage.getItem('itemsInCart');
+    cartItems = JSON.parse(cartItems)
 
-    if (itemNumbers) {
+    if (event == "decrease") {
+        localStorage.setItem('cartNumbers', itemNumbers - 1)
+        document.querySelector('.itemNumbers span').textContent = itemNumbers - 1;
+    } else if (itemNumbers) {
+        localStorage.setItem("cartNumbers", itemNumbers + 1)
+        document.querySelector('.itemNumbers span').textContent = itemNumbers + 1;
+    } else {
+        localStorage.setItem('cartNumbers', 1);
+        document.querySelector('.itemNumbers span').textContent = 1
+    }
+
+
+    /*if (itemNumbers) {
         localStorage.setItem('cartNumbers', itemNumbers + 1);
         document.querySelector('.itemNumbers span').textContent = itemNumbers + 1;
     } else {
         localStorage.setItem('cartNumbers', 1)
         document.querySelector('.itemNumbers span').textContent = 1;
-    }
-    setItems(items)
+    }*/
+    setItems(item)
 
 }
 
-const setItems = (items) => {
+const setItems = (item) => {
     let cartItems = localStorage.getItem('itemsInCart');
     cartItems = JSON.parse(cartItems)
     if (cartItems != null) {
-        if (cartItems[items.tag] == undefined) {
+        if (cartItems[item.tag] == undefined) {
             cartItems = {
                 ...cartItems,
-                [items.tag]: items
+                [item.tag]: item
             }
         }
-        cartItems[items.tag].inCart += 1;
+        cartItems[item.tag].inCart += 1;
     } else {
-        items.inCart = 1;
+        item.inCart = 1;
         cartItems = {
-            [items.tag]: items
+            [item.tag]: item
         }
     }
     localStorage.setItem("itemsInCart", JSON.stringify(cartItems));
 }
 
-const totalCost = (items) => {
-    console.log("the product price is", items.price)
+const totalCost = (item, event) => {
+    console.log("the product price is", item.price)
 
     let itemsCost = localStorage.getItem("totalCost");
-
-    if (itemsCost != null) {
+    if (event == "decrease") {
         itemsCost = parseInt(itemsCost);
-        itemsCost += items.price;
+        localStorage.setItem('totalCost', itemsCost - item.price)
+    } else if (itemsCost != null) {
+        itemsCost = parseInt(itemsCost);
+        itemsCost += item.price;
         localStorage.setItem("totalCost", itemsCost);
     } else {
-        localStorage.setItem("totalCost", items.price);
-        itemsCost = items.price
+        localStorage.setItem("totalCost", item.price);
+        itemsCost = item.price
 
     }
     console.log("My itemsCost is", itemsCost);
@@ -134,9 +150,9 @@ const displayCart = () => {
               </div>
               <div class="itemPriceShopWindowDisplayed">€${item.price}</div>
               <div class="quantityShopWindowDisplayed">
-                  <ion-icon name="caret-back-outline"></ion-icon>
+                  <ion-icon name="caret-back-outline" class="decreaseNumberOfItemInCart"></ion-icon>
                   <span>${item.inCart}</span>
-                  <ion-icon name="caret-forward-outline"></ion-icon>
+                  <ion-icon name="caret-forward-outline" class="increaseNumberOfItemInCart"></ion-icon>
               </div>
               <div class="totalPriceShopWindowDisplayed"> €${item.inCart * item.price},00</div>       
             </div>
@@ -150,16 +166,16 @@ const displayCart = () => {
         `
     }
     deleteItems()
+    handleQuantity();
 }
 
 const deleteItems = () => {
-    let deleteItem = document.querySelectorAll(".itemDisplayed ion-icon");
+    let deleteItem = document.querySelectorAll(".itemDisplayedTitle ion-icon");
     let itemName;
     let itemNumbers = localStorage.getItem('cartNumbers');
     let cartItems = localStorage.getItem('itemsInCart')
-    let cartCost = localStorage.getItem('totalCost')
     cartItems = JSON.parse(cartItems)
-    console.log(cartItems)
+    let cartCost = localStorage.getItem('totalCost')
 
 
     for (let y = 0; y < deleteItem.length; y++) {
@@ -167,6 +183,7 @@ const deleteItems = () => {
             itemName = deleteItem[y].parentElement.textContent.trim().toUpperCase().replace(/ /g, '');
             localStorage.setItem('cartNumbers', itemNumbers - cartItems[itemName].inCart);
             localStorage.setItem('totalCost', cartCost - (cartItems[itemName].price * cartItems[itemName].inCart));
+            items[y].inCart = 0
             delete cartItems[itemName];
             localStorage.setItem('itemsInCart', JSON.stringify(cartItems))
             displayCart();
@@ -176,8 +193,48 @@ const deleteItems = () => {
 
 }
 
-onLoadItemNumbers()
-displayCart()
+const handleQuantity = () => {
+
+    let decreaseButtons = document.querySelectorAll('.decreaseNumberOfItemInCart')
+    let increaseButtons = document.querySelectorAll('.increaseNumberOfItemInCart')
+    let cartItems = localStorage.getItem('itemsInCart')
+    let currentQuantity = 0
+    let currentItem = ''
+    cartItems = JSON.parse(cartItems);
+
+    for (let y = 0; y < decreaseButtons.length; y++) {
+        decreaseButtons[y].addEventListener('click', () => {
+            currentQuantity = decreaseButtons[y].parentElement.querySelector('span').textContent;
+            //console.log(currentQuantity)
+            currentItem = decreaseButtons[y].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toUpperCase().replace(/ /g, '');
+            console.log(currentItem)
+            if (cartItems[currentItem].inCart > 1) {
+                cartItems[currentItem].inCart -= 1;
+                cartNumbers(cartItems[currentItem], "decrease");
+                totalCost(cartItems[currentItem], "decrease");
+                localStorage.setItem('itemsInCart', JSON.stringify(cartItems))
+                displayCart();
+            }
+        })
+
+    }
+    for (let y = 0; y < increaseButtons.length; y++) {
+        increaseButtons[y].addEventListener('click', () => {
+            currentQuantity = increaseButtons[y].parentElement.querySelector('span').textContent;
+            console.log(currentQuantity)
+            currentItem = increaseButtons[y].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toUpperCase().replace(/ /g, '');
+            console.log(currentItem)
+            cartItems[currentItem].inCart += 1;
+            cartNumbers(cartItems[currentItem]);
+            totalCost(cartItems[currentItem]);
+            localStorage.setItem('itemsInCart', JSON.stringify(cartItems))
+            displayCart();
+        })
+    }
+}
+
+onLoadItemNumbers();
+displayCart();
 
 
 
