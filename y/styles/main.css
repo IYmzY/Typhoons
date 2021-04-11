@@ -399,7 +399,7 @@ nav a {
   border-image-slice: 1;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
-.liveDateContainer:nth-child(3) button {
+.liveDateContainer:nth-child(2) button {
   color: #dc3545;
   filter: grayscale(70%);
 }
