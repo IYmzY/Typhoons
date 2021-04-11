@@ -334,6 +334,67 @@ nav a {
   transform: translate3d(30%, 0, -200px);
 }
 
+/* lIVE SLIDER DATE */
+
+.liveDateWindow {
+  width: 60%;
+  height: 70vh;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #3aaff8, #dc3545);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 20%;
+  top: 20%;
+  z-index: 9999;
+  display: none;
+}
+.liveDateWindow ion-icon {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  font-size: 165%;
+  background-image: linear-gradient(45deg, #dc3545, #3aaff8);
+  border-radius: 100%;
+  cursor: pointer;
+}
+.liveDateWindow ion-icon:hover {
+  background-image: linear-gradient(45deg, #3aaff8, #dc3545);
+}
+.liveDateContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+.liveDateContainer span:nth-child(2) {
+  width: 40%;
+}
+.liveDateContainer button {
+  width: 10vw;
+  height: 5vh;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #dc3545, #3aaff8);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  color: white;
+}
+.liveDateContainer button:hover {
+  border-image: linear-gradient(45deg, #3aaff8, #dc3545);
+  border-image-slice: 1;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.liveDateContainer:nth-child(3) button {
+  color: #dc3545;
+  filter: grayscale(70%);
+}
 /*Shop*/
 .shopContainer {
   height: 95vh;

@@ -3,6 +3,7 @@ let shopWindow = document.querySelector('.shopWindow')
 let closeShop = document.querySelector('.closeShopWindow')
 let cart = document.querySelectorAll('.cartSelector')
 
+/* Shop Event*/
 shop.addEventListener("click", () => {
     shopWindow.style.display = "block"
     console.log('i am triggered ahahaha');
@@ -13,7 +14,7 @@ closeShop.addEventListener("click", () => {
     shopWindow.style.display = "none";
 })
 
-
+/* Shop Functionnalities*/
 let items = [
     {
         name: "CD ALBUM",

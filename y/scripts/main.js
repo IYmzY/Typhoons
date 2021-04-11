@@ -2,7 +2,10 @@ let shop = document.querySelector('.cartShopCart')
 let shopWindow = document.querySelector('.shopWindow')
 let closeShop = document.querySelector('.closeShopWindow')
 let cart = document.querySelectorAll('.cartSelector')
-
+let sliderOne = document.querySelector('#s1')
+let sliderLive = document.querySelector('.liveDateWindow')
+let closeLiveDateWindow = document.querySelector('.closeLiveDateWindow')
+/* Shop Event*/
 shop.addEventListener("click", () => {
     shopWindow.style.display = "block"
     console.log('i am triggered ahahaha');
@@ -14,6 +17,21 @@ closeShop.addEventListener("click", () => {
 })
 
 
+/* live Slider*/
+
+
+sliderOne.addEventListener("click", () => {
+    sliderLive.style.display = "flex"
+    console.log('i am triggered ahahaha');
+
+})
+
+
+closeLiveDateWindow.addEventListener("click", () => {
+    sliderLive.style.display = "none";
+})
+
+/* Shop Functionnalities*/
 let items = [
     {
         name: "CD ALBUM",
