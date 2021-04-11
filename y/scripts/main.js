@@ -17,15 +17,17 @@ closeShop.addEventListener("click", () => {
 })
 
 
+
+
 /* live Slider*/
 
 
 sliderOne.addEventListener("click", () => {
-    sliderLive.style.display = "flex"
     console.log('i am triggered ahahaha');
+    sliderLive.style.display = "flex";
+
 
 })
-
 
 closeLiveDateWindow.addEventListener("click", () => {
     sliderLive.style.display = "none";
@@ -253,6 +255,33 @@ const handleQuantity = () => {
 
 onLoadItemNumbers();
 displayCart();
+
+/* firebase */
+
+import firebaseConfig from '../admin/firebaseConfig.js'
+
+firebase.initializeApp(firebaseConfig)
+const db = firebase.firestore();
+
+const updateLive = () => {
+    let liveDateDisplayed = document.querySelector('.liveDateDisplayed')
+    db.collection("Live").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            liveDateDisplayed.innerHTML += `
+          <div class="liveDateContainer">
+              <span>${doc.data().date}</span>
+              <span>${doc.data().infos}</span>
+             <button type="button">TICKETS</button>
+         </div>
+           `
+
+        })
+    })
+}
+
+updateLive()
+
+
 
 
 

@@ -34,33 +34,32 @@
           />
         </a>
       </div>
-      <button class="btn-light btn deconnexionButton">Deconnexion</button>
+      <button class="btn-light deconnexionButton">Deconnexion</button>
     </nav>
     <main>
       <section>
-        <button
-          class="btn btn-light"
-          onclick=" window.open('adminChange.html','_blank')"
-          type="button"
-        >
-          CREATE
-        </button>
-        <table class="table table-light borderless" class="tableau">
-          <thead>
-            <tr>
-              <th scope="col">DATES</th>
-              <th scope="col">INFOS</th>
-              <th scope="col">DELETE</th>
-              <th scope="col">EDIT</th>
-              <div class="formulaireEditAdmin">
-                <input type="date" class="editDateAdmin" />
-                <textarea type="text" class="editInfosAdmin"></textarea>
-                <button type="button" class="editButtonAdmin">EDIT</button>
-              </div>
-            </tr>
-          </thead>
-          <tbody class="tableAdmin"></tbody>
-        </table>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">date</label>
+            <input
+              type="date"
+              class="form-control datesAdmin"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">infos</label>
+            <textarea
+              type="text"
+              class="form-control infosAdmin"
+              id="exampleInputPassword1"
+            ></textarea>
+          </div>
+          <button class="btn btn-primary submitAdmin" type="button">
+            Submit
+          </button>
+        </form>
       </section>
     </main>
     <footer>
@@ -145,5 +144,6 @@
       defer
     ></script>
     <script src="./admin.js" type="module" defer></script>
+    <script src="./adminChange.js" type="module" defer></script>
   </body>
 </html>

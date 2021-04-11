@@ -34,33 +34,10 @@
           />
         </a>
       </div>
-      <button class="btn-light btn deconnexionButton">Deconnexion</button>
     </nav>
     <main>
       <section>
-        <button
-          class="btn btn-light"
-          onclick=" window.open('adminChange.html','_blank')"
-          type="button"
-        >
-          CREATE
-        </button>
-        <table class="table table-light borderless" class="tableau">
-          <thead>
-            <tr>
-              <th scope="col">DATES</th>
-              <th scope="col">INFOS</th>
-              <th scope="col">DELETE</th>
-              <th scope="col">EDIT</th>
-              <div class="formulaireEditAdmin">
-                <input type="date" class="editDateAdmin" />
-                <textarea type="text" class="editInfosAdmin"></textarea>
-                <button type="button" class="editButtonAdmin">EDIT</button>
-              </div>
-            </tr>
-          </thead>
-          <tbody class="tableAdmin"></tbody>
-        </table>
+        <button class="btn-light connexionButton">CONNEXION</button>
       </section>
     </main>
     <footer>
@@ -130,8 +107,8 @@
         </div>
       </section>
     </footer>
-    <script src="../scripts/bootstrap.js"></script>
-    <script src="../scripts/bootstrap.bundle.js"></script>
+    <script src="./scripts/bootstrap.bundle.js"></script>
+    <script src="./scripts/bootstrap.js"></script>
     <script
       src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"
       defer
@@ -144,6 +121,6 @@
       src="https://www.gstatic.com/firebasejs/8.3.3/firebase-firestore.js"
       defer
     ></script>
-    <script src="./admin.js" type="module" defer></script>
+    <script src="./login.js" type="module" defer></script>
   </body>
 </html>
